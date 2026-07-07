@@ -1,366 +1,509 @@
+<!--
+  DIRECTION ONE — "COUNTERPOINT"
+  The page is staged as a dialogue between two experts, and the typography carries it:
+  everything about the client's world speaks in Newsreader italic, everything Ayo SCG
+  says answers in Archivo, and the two voices meet across a gold seam in a split-panel
+  hero. The one risk it commits to: a dual-typeface conversation is the whole identity,
+  so it lives or dies on that pairing staying disciplined rather than decorative.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Your Fractional Contracting Team | Ayo Strategic Consulting Group</title>
 <meta name="description" content="You're an expert at what you do. Contracting is what we do. A fractional contracting team for government contractors, covering business development, capture, contract management, and contract administration.">
 <meta property="og:title" content="Your Fractional Contracting Team | Ayo Strategic Consulting Group">
-<meta property="og:description" content="A fractional contracting team for government contractors, covering business development, capture, contract management, and contract administration.">
-<meta property="og:type" content="website">
+<meta property="og:description" content="You're an expert at what you do. Contracting is what we do. A fractional contracting team for government contractors, covering business development, capture, contract management, and contract administration.">
 <meta property="og:url" content="https://contracting.ayoscg.com">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://contracting.ayoscg.com/">
+<meta name="theme-color" content="#5E8894">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --teal:#5E8894;
-    --teal-deep:#44646E;
     --green:#60870C;
     --gold:#D4A017;
     --red:#C55A5A;
     --light:#f5f7fa;
-    --med:#e4e8ec;
-    --ink:#2b3338;
-    --ink-soft:#55606a;
+    --mid:#e4e8ec;
+    --ink:#1F2A30;
+    --ink-soft:#4B5E68;
+    --you:"Newsreader", Georgia, serif;
+    --we:"Archivo", "Segoe UI", Arial, sans-serif;
   }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{transition:none !important;} }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
   body{
-    font-family:'Source Sans 3', Calibri, 'Segoe UI', sans-serif;
-    color:var(--ink);
-    background:#ffffff;
+    font-family:var(--we);
+    font-size:1.0625rem;
     line-height:1.65;
-    font-size:1.06rem;
+    color:var(--ink);
+    background:#fff;
+    -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:1060px;margin:0 auto;padding:0 24px;}
 
-  /* Top bar */
-  .topbar{
-    background:#ffffff;
-    border-bottom:1px solid var(--med);
-    padding:18px 0;
-  }
-  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
-  .brand{
-    font-family:'Lora', Georgia, serif;
-    font-weight:700;
-    font-size:1.15rem;
-    color:var(--teal-deep);
-    letter-spacing:.02em;
-    text-decoration:none;
-  }
-  .brand span{color:var(--gold);}
-  .top-cta{
-    color:#fff;
-    background:var(--teal);
-    text-decoration:none;
-    padding:9px 20px;
-    border-radius:4px;
-    font-weight:600;
-    font-size:.95rem;
-    transition:background .2s ease;
-  }
-  .top-cta:hover, .top-cta:focus-visible{background:var(--teal-deep);}
-  a:focus-visible, .btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+  h1,h2,h3{line-height:1.1}
+  @supports (text-wrap:balance){h1,h2,h3{text-wrap:balance}}
 
-  /* Hero */
-  .hero{
-    background:linear-gradient(180deg,#ffffff 0%, var(--light) 100%);
-    padding:88px 0 76px;
-    border-bottom:1px solid var(--med);
+  /* The two voices */
+  .v-you{font-family:var(--you);font-style:italic;font-weight:500;letter-spacing:0}
+  .v-we{font-family:var(--we);font-weight:800;letter-spacing:-0.015em}
+
+  :focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+  .on-teal :focus-visible,.say-we :focus-visible{outline-color:#fff}
+  .site-footer :focus-visible{outline-color:var(--gold)}
+
+  .skip-link{
+    position:absolute;left:-999px;top:0;z-index:100;
+    background:var(--ink);color:#fff;padding:.75rem 1.25rem;
+    font-weight:700;text-decoration:none;
   }
-  .eyebrow{
-    font-size:.85rem;
-    font-weight:700;
-    letter-spacing:.16em;
-    text-transform:uppercase;
-    color:var(--gold);
-    margin-bottom:22px;
-  }
-  .hero h1{
-    font-family:'Lora', Georgia, serif;
-    font-weight:600;
-    font-size:clamp(2rem, 5vw, 3.1rem);
-    line-height:1.18;
-    max-width:820px;
-  }
-  .hero h1 .line-one{display:block;color:var(--ink);}
-  .hero h1 .line-two{display:block;color:var(--teal);}
-  .hero .rule{
-    width:72px;height:3px;background:var(--gold);
-    margin:30px 0;
-    border:none;
-  }
-  .hero p.lead{
-    font-size:1.18rem;
-    color:var(--ink-soft);
-    max-width:680px;
-    margin-bottom:36px;
-  }
+  .skip-link:focus{left:0}
+
+  .wrap{max-width:1140px;margin-inline:auto;padding-inline:clamp(1.25rem,5vw,3rem)}
+
   .btn{
     display:inline-block;
-    background:var(--green);
-    color:#fff;
+    background:var(--gold);
+    color:var(--ink);
+    font-family:var(--we);
+    font-weight:700;
+    font-size:1rem;
+    line-height:1;
+    padding:1.05rem 1.9rem;
     text-decoration:none;
-    font-weight:700;
-    padding:15px 34px;
-    border-radius:4px;
-    font-size:1.05rem;
-    transition:background .2s ease, transform .15s ease;
+    transition:background .25s ease,color .25s ease,transform .18s ease,box-shadow .25s ease;
   }
-  .btn:hover, .btn:focus-visible{background:#4d6d0a;transform:translateY(-1px);}
-  .btn-note{display:block;margin-top:14px;font-size:.92rem;color:var(--ink-soft);}
+  .btn:hover{
+    background:var(--ink);
+    color:var(--gold);
+    transform:translateY(-2px);
+    box-shadow:0 10px 24px rgba(31,42,48,.18);
+  }
+  .btn:active{transform:translateY(0)}
+  .btn--small{padding:.65rem 1.1rem;font-size:.9rem}
 
-  /* Frames */
-  section{padding:74px 0;}
-  .frame h2, .functions h2, .compare h2, .engage h2, .closing h2{
-    font-family:'Lora', Georgia, serif;
-    font-weight:600;
-    font-size:clamp(1.5rem, 3.4vw, 2.05rem);
-    line-height:1.25;
-    margin-bottom:20px;
-    max-width:760px;
+  /* ---------- Top bar ---------- */
+  .topbar{background:#fff;border-bottom:1px solid var(--mid);position:sticky;top:0;z-index:50}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.85rem}
+  .wordmark{
+    font-family:var(--we);font-weight:700;letter-spacing:-0.01em;
+    font-size:clamp(.92rem,2.6vw,1.1rem);
+    color:var(--ink);text-decoration:none;
+    border-bottom:2px solid transparent;transition:border-color .2s ease;
   }
-  .frame p, .engage p{max-width:740px;color:var(--ink-soft);font-size:1.09rem;}
-  .frame p + p{margin-top:16px;}
-  .frame-label{
-    font-size:.82rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-    margin-bottom:14px;
-  }
-  .frame-expertise .frame-label{color:var(--teal);}
-  .frame-focus .frame-label{color:var(--green);}
-  .frame-embedded .frame-label{color:var(--gold);}
-  .frame-focus{background:var(--light);border-top:1px solid var(--med);border-bottom:1px solid var(--med);}
-  .pull{
-    font-family:'Lora', Georgia, serif;
-    font-style:italic;
-    font-size:1.22rem;
-    color:var(--teal-deep);
-    border-left:3px solid var(--gold);
-    padding-left:20px;
-    margin-top:26px;
-    max-width:640px;
-  }
+  .wordmark:hover{border-bottom-color:var(--gold)}
 
-  /* Functions grid */
-  .functions{background:#ffffff;}
-  .functions .intro{max-width:740px;color:var(--ink-soft);font-size:1.09rem;margin-bottom:40px;}
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:22px;
-  }
-  .card{
-    background:var(--light);
-    border:1px solid var(--med);
-    border-top:4px solid var(--teal);
-    border-radius:6px;
-    padding:30px 28px;
-  }
-  .card:nth-child(2){border-top-color:var(--green);}
-  .card:nth-child(3){border-top-color:var(--gold);}
-  .card:nth-child(4){border-top-color:var(--red);}
-  .card h3{
-    font-family:'Lora', Georgia, serif;
-    font-size:1.18rem;
-    font-weight:700;
-    margin-bottom:10px;
+  /* ---------- Hero: the exchange ---------- */
+  .eyebrow-band{background:var(--light);padding-top:clamp(2.5rem,6vw,4.5rem)}
+  .eyebrow{
+    display:flex;align-items:center;gap:.75rem;
+    font-size:.8rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
     color:var(--ink);
   }
-  .card p{color:var(--ink-soft);font-size:1rem;}
+  .eyebrow::before{content:"";width:2rem;height:2px;background:var(--gold);flex:none}
 
-  /* Comparison */
-  .compare{background:var(--light);border-top:1px solid var(--med);border-bottom:1px solid var(--med);}
-  .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:36px;}
-  .compare-col{background:#fff;border:1px solid var(--med);border-radius:6px;padding:32px 30px;}
-  .compare-col h3{
-    font-family:'Lora', Georgia, serif;font-size:1.15rem;font-weight:700;margin-bottom:18px;
-    padding-bottom:12px;border-bottom:2px solid var(--med);
+  .anchor{display:grid;grid-template-columns:1fr 1fr;min-height:min(56vh,540px)}
+  .say{display:flex;align-items:center;padding:clamp(2.25rem,5.5vw,4.5rem)}
+  .say-you{
+    background:var(--light);
+    justify-content:flex-end;text-align:right;
+    font-family:var(--you);font-style:italic;font-weight:500;
+    font-size:clamp(1.9rem,3.9vw,3.3rem);
+    line-height:1.18;color:var(--ink);
   }
-  .compare-col.inhouse h3{color:var(--red);border-bottom-color:var(--red);}
-  .compare-col.fractional h3{color:var(--green);border-bottom-color:var(--green);}
-  .compare-col p{color:var(--ink-soft);font-size:1rem;}
-  .compare-col p + p{margin-top:12px;}
-
-  /* Engagement */
-  .engage .facts{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:36px 0;
-  }
-  .fact{
-    background:var(--light);border:1px solid var(--med);border-radius:6px;padding:24px;text-align:center;
-  }
-  .fact .k{
-    font-family:'Lora', Georgia, serif;font-weight:700;font-size:1.2rem;color:var(--teal-deep);
-    display:block;margin-bottom:6px;
-  }
-  .fact .v{font-size:.98rem;color:var(--ink-soft);}
-
-  /* Closing */
-  .closing{
+  .say-we{
     background:var(--teal);
-    color:#fff;
-    text-align:center;
+    border-left:4px solid var(--gold);
+    justify-content:flex-start;text-align:left;
+    font-family:var(--we);font-weight:800;letter-spacing:-0.015em;
+    font-size:clamp(1.9rem,3.9vw,3.3rem);
+    line-height:1.1;color:#fff;
   }
-  .closing h2{color:#fff;margin-left:auto;margin-right:auto;}
-  .closing p{
-    max-width:640px;margin:0 auto 34px;font-size:1.12rem;color:#eef4f6;
+  .say span{max-width:12ch}
+  @media (max-width:820px){
+    .anchor{grid-template-columns:1fr;min-height:0}
+    .say{padding-block:clamp(2rem,8vw,3rem)}
+    .say-you{justify-content:flex-start;text-align:left}
+    .say-we{border-left:none;border-top:4px solid var(--gold)}
   }
-  .closing .btn{background:var(--gold);color:#2b2b2b;}
-  .closing .btn:hover, .closing .btn:focus-visible{background:#b8890f;color:#fff;}
-  .closing .btn-note{color:#dfe9ec;}
 
-  /* Footer */
-  footer{
-    background:#2f3b40;
-    color:#c9d3d8;
-    padding:38px 0;
-    font-size:.95rem;
-    text-align:center;
-  }
-  footer .tagline{
-    font-family:'Lora', Georgia, serif;
-    color:#fff;
-    font-size:1.02rem;
-    margin-bottom:10px;
-  }
-  footer a{color:var(--gold);text-decoration:none;}
-  footer a:hover{text-decoration:underline;}
-  footer .copyright{margin-top:14px;color:#9fadb4;}
+  .hero-support{background:#fff;padding-block:clamp(2.5rem,6vw,4rem)}
+  .hero-sub{max-width:44rem;font-size:1.15rem;color:var(--ink-soft)}
+  .hero-cta{margin-top:2rem}
+  .hero-note{margin-top:1rem;font-size:.95rem;color:var(--ink-soft)}
 
-  @media (max-width:760px){
-    section{padding:56px 0;}
-    .hero{padding:64px 0 56px;}
-    .grid, .compare-grid, .engage .facts{grid-template-columns:1fr;}
+  /* Load animation: you speak, we answer. */
+  .js .say-you,.js .say-we,.js .hero-rest{opacity:0;animation:speak .5s cubic-bezier(.22,.61,.36,1) forwards}
+  .js .say-you{transform:translateY(.3em);animation-delay:.1s}
+  .js .say-we{transform:translateX(-.4em);animation-delay:.68s}
+  .js .hero-rest{transform:translateY(.3em);animation-delay:.95s;animation-duration:.45s}
+  @keyframes speak{to{opacity:1;transform:none}}
+
+  /* ---------- Sections ---------- */
+  .section{padding-block:clamp(4rem,9vw,6.5rem)}
+  .section--light{background:var(--light)}
+
+  .duet{display:grid;gap:clamp(1.75rem,4vw,4rem)}
+  @media (min-width:880px){.duet{grid-template-columns:minmax(0,6fr) minmax(0,6fr);align-items:start}}
+  .duet h2{font-size:clamp(1.7rem,3.3vw,2.4rem)}
+  .duet h2 .v-you{display:block;color:var(--ink);font-size:1em;line-height:1.22}
+  .duet h2 .v-we{display:block;margin-top:.5em;color:var(--teal);font-size:.92em}
+  .duet-body p{font-size:1.125rem;color:var(--ink-soft)}
+  .duet-body p + p{margin-top:1.25rem}
+  .answer{
+    margin-top:1.5rem;
+    font-family:var(--we);font-weight:700;letter-spacing:-0.01em;
+    font-size:clamp(1.3rem,2.4vw,1.55rem);line-height:1.3;
+    color:var(--ink);
+  }
+
+  .aside-quote{
+    margin:clamp(3rem,7vw,5rem) auto 0;
+    max-width:34ch;text-align:center;
+    font-family:var(--you);font-style:italic;font-weight:500;
+    font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.3;color:var(--ink);
+  }
+  .aside-quote::before,.aside-quote::after{
+    content:"";display:block;width:3.5rem;height:2px;background:var(--gold);
+    margin:1.25rem auto;
+  }
+
+  /* ---------- Embedded: our voice holds the field ---------- */
+  .band-teal{background:var(--teal)}
+  .band-teal .band-head{
+    color:#fff;font-family:var(--we);font-weight:800;letter-spacing:-0.015em;
+    font-size:clamp(1.75rem,3.4vw,2.5rem);max-width:24ch;
+  }
+  .band-card{
+    margin-top:2.25rem;background:#fff;
+    padding:clamp(1.75rem,4vw,2.75rem);
+    max-width:52rem;
+  }
+  .band-card p{font-size:1.125rem;color:var(--ink-soft)}
+  .band-card p + p{margin-top:1.25rem}
+
+  /* ---------- Functions: the life of a contract ---------- */
+  .covers h2{
+    font-family:var(--we);font-weight:800;letter-spacing:-0.015em;
+    font-size:clamp(1.8rem,3.6vw,2.5rem);
+  }
+  .lifecycle{
+    margin-top:2.5rem;
+    position:relative;
+    padding-left:clamp(1.9rem,4.5vw,2.75rem);
+  }
+  .lifecycle::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;
+    width:2px;background:var(--gold);
+  }
+  .stage{position:relative;padding-block:clamp(1.6rem,3.5vw,2.4rem)}
+  .stage + .stage{border-top:1px solid var(--mid)}
+  .stage::before{
+    content:"";position:absolute;
+    left:calc(-1*clamp(1.9rem,4.5vw,2.75rem) - 5px);
+    top:clamp(1.9rem,3.9vw,2.8rem);
+    width:12px;height:12px;background:var(--gold);
+  }
+  @media (min-width:880px){
+    .stage{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
+  }
+  .stage-num{
+    font-family:var(--we);font-weight:700;
+    font-size:.8rem;letter-spacing:.22em;
+    color:var(--ink-soft);
+  }
+  .stage h3{
+    font-family:var(--we);font-weight:700;letter-spacing:-0.01em;
+    font-size:clamp(1.25rem,2.4vw,1.5rem);
+    margin-top:.4rem;
+  }
+  .stage p{color:var(--ink-soft);max-width:44rem}
+  @media (max-width:879px){.stage p{margin-top:.7rem}}
+
+  /* ---------- Comparison: the voices disagree ---------- */
+  .versus-head{
+    font-family:var(--we);font-weight:800;letter-spacing:-0.015em;
+    font-size:clamp(1.8rem,3.6vw,2.5rem);text-align:center;
+    margin-inline:auto;max-width:24ch;
+  }
+  .versus{display:grid;gap:1.5rem;margin-top:2.75rem}
+  @media (min-width:800px){.versus{grid-template-columns:1fr 1fr}}
+  .versus-col{background:#fff;border:1px solid var(--mid);padding:1.9rem 1.75rem .75rem}
+  .versus-col--house{border-top:4px solid var(--red)}
+  .versus-col--team{border-top:4px solid var(--green)}
+  .versus-col--house h3{
+    font-family:var(--you);font-style:italic;font-weight:600;
+    font-size:1.5rem;color:var(--red);padding-bottom:1rem;
+  }
+  .versus-col--team h3{
+    font-family:var(--we);font-weight:800;letter-spacing:-0.01em;
+    font-size:1.35rem;color:var(--green);padding-bottom:1.1rem;
+  }
+  .versus-col p{border-top:1px solid var(--mid);padding-block:1.05rem;color:var(--ink-soft)}
+
+  /* ---------- Engagements ---------- */
+  .engage h2{
+    font-family:var(--we);font-weight:800;letter-spacing:-0.015em;
+    font-size:clamp(1.8rem,3.6vw,2.5rem);
+  }
+  .facts{display:grid;gap:1.25rem;margin-top:2.5rem}
+  @media (min-width:720px){.facts{grid-template-columns:repeat(3,1fr)}}
+  .fact{
+    background:#fff;border:1px solid var(--mid);padding:1.6rem 1.5rem;
+    font-family:var(--we);font-weight:700;font-size:1.25rem;letter-spacing:-0.01em;
+    display:flex;align-items:center;gap:.85rem;
+  }
+  .fact::before{content:"";width:.7rem;height:.7rem;background:var(--gold);flex:none}
+  .engage-note{
+    margin-top:2.25rem;max-width:44rem;
+    font-family:var(--you);font-style:italic;font-weight:500;
+    font-size:1.35rem;line-height:1.5;color:var(--ink);
+  }
+
+  /* ---------- Closing: the exchange, resolved ---------- */
+  .closing{display:grid;grid-template-columns:1fr 1fr}
+  .closing-you{
+    background:var(--light);
+    display:flex;align-items:center;justify-content:flex-end;
+    padding:clamp(2.5rem,6vw,5rem);
+  }
+  .closing-you h2{
+    font-family:var(--you);font-style:italic;font-weight:500;
+    font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.2;
+    text-align:right;max-width:14ch;color:var(--ink);
+  }
+  .closing-we{
+    background:var(--teal);border-left:4px solid var(--gold);
+    display:flex;flex-direction:column;justify-content:center;
+    padding:clamp(2.5rem,6vw,5rem);
+  }
+  .closing-we p{font-size:1.5rem;line-height:1.5;color:#fff;max-width:24em}
+  .closing-cta{margin-top:2rem}
+  @media (max-width:820px){
+    .closing{grid-template-columns:1fr}
+    .closing-you{justify-content:flex-start}
+    .closing-you h2{text-align:left}
+    .closing-we{border-left:none;border-top:4px solid var(--gold)}
+  }
+
+  /* ---------- Footer ---------- */
+  .site-footer{background:var(--ink);color:#fff;padding-block:clamp(3rem,6vw,4.5rem)}
+  .footer-tagline{
+    font-family:var(--you);font-style:italic;font-weight:500;
+    font-size:clamp(1.15rem,2.5vw,1.4rem);
+  }
+  .footer-links{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.5rem 2rem}
+  .footer-links a{
+    color:var(--gold);text-decoration:none;font-weight:600;
+    border-bottom:1px solid transparent;transition:border-color .2s ease;
+  }
+  .footer-links a:hover{border-bottom-color:var(--gold)}
+  .footer-notice{
+    margin-top:2.25rem;padding-top:1.5rem;
+    border-top:1px solid rgba(228,232,236,.22);
+    font-size:.9rem;color:#AEBDC5;
+  }
+
+  /* ---------- Reveals ---------- */
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .js .reveal.in{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion: reduce){
+    .js .say-you,.js .say-we,.js .hero-rest{opacity:1;transform:none;animation:none}
+    .js .reveal{opacity:1;transform:none;transition:none}
+    .btn,.card,.card::before,.wordmark,.footer-links a{transition:none}
+    .btn:hover,.card:hover{transform:none}
   }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="topbar">
-  <div class="wrap">
-    <a class="brand" href="https://www.ayoscg.com">Ayo <span>Strategic Consulting Group</span></a>
-    <a class="top-cta" href="PASTE-YOUR-MICROSOFT-BOOKINGS-LINK-HERE">Schedule a Consultation</a>
+  <div class="wrap topbar-inner">
+    <a class="wordmark" href="https://www.ayoscg.com">Ayo Strategic Consulting Group</a>
+    <a class="btn btn--small" href="https://outlook.office.com/book/AyoConsult@ayoscg.com/?ismsaljsauthenabled">Schedule a Consultation</a>
   </div>
 </header>
 
-<section class="hero">
-  <div class="wrap">
-    <p class="eyebrow">Your Fractional Contracting Team</p>
-    <h1>
-      <span class="line-one">You're an expert at what you do.</span>
-      <span class="line-two">Contracting is what we do.</span>
+<main id="main">
+
+  <section aria-labelledby="hero-heading">
+    <div class="eyebrow-band">
+      <div class="wrap"><p class="eyebrow">Your Fractional Contracting Team</p></div>
+    </div>
+    <h1 id="hero-heading" class="anchor">
+      <span class="say say-you"><span>You&rsquo;re an expert at what you do.</span></span>
+      <span class="say say-we"><span>Contracting is what we do.</span></span>
     </h1>
-    <hr class="rule">
-    <p class="lead">Ayo Strategic Consulting Group gives growing government contractors a full contracting team without the cost of building one in house. Business development, capture, proposal development, and contract administration, handled with you.</p>
-    <a class="btn" href="PASTE-YOUR-MICROSOFT-BOOKINGS-LINK-HERE">Schedule a Consultation</a>
-    <span class="btn-note">A consultation fee applies and is fully credited toward your engagement if you proceed.</span>
-  </div>
-</section>
-
-<section class="frame frame-expertise">
-  <div class="wrap">
-    <p class="frame-label">Two Experts, One Goal</p>
-    <h2>Your business was built to deliver something specific to the government. Contracting is a different specialty, and it is ours.</h2>
-    <p>The companies that grow in this market are rarely the ones that learned contracting on the side. They are the ones that stayed focused on their craft and put a specialist on the contracting seat. Ayo SCG stands beside you as that second expert, so the part of the business you were never meant to master is handled by people who work in it every day.</p>
-    <p class="pull">You could get by doing it yourself. Getting by is not the goal.</p>
-  </div>
-</section>
-
-<section class="frame frame-focus">
-  <div class="wrap">
-    <p class="frame-label">Focus on the Work You Were Built to Do</p>
-    <h2>Running your own contracting pulls you away from the work that earns your revenue.</h2>
-    <p>Every hour spent hunting opportunities, decoding solicitations, and chasing compliance is an hour taken from delivery, from your customers, and from the work your company is actually known for. Doing it part way rarely produces the result a specialist would.</p>
-    <p>Stop doing your own contracting. Bring in the team that specializes in it, and get your attention back.</p>
-  </div>
-</section>
-
-<section class="frame frame-embedded">
-  <div class="wrap">
-    <p class="frame-label">Your Team, Inside Your Business</p>
-    <h2>A full contracting function that operates like part of your company, without adding to your payroll.</h2>
-    <p>No new salaries, no taxes, no benefits, no HR. Your fractional team works embedded in your business, learning your capabilities, your customers, and your goals, and carrying the contracting function for as long as you need it.</p>
-    <p>The need does not end when a pursuit ends, and neither do we. As long as you are in government contracting, the function has to exist. We are it.</p>
-  </div>
-</section>
-
-<section class="functions">
-  <div class="wrap">
-    <h2>What Your Team Covers</h2>
-    <p class="intro">Four functions every growing contractor eventually has to staff, delivered under one engagement.</p>
-    <div class="grid">
-      <div class="card">
-        <h3>Business Development</h3>
-        <p>We build and work your pipeline. Market monitoring, opportunity identification, and qualification, so you always know what is coming and what deserves your attention.</p>
-      </div>
-      <div class="card">
-        <h3>Capture and Proposals</h3>
-        <p>We develop your capture strategy before the RFP drops, then write compliant, compelling, submission-ready proposals that position you to compete.</p>
-      </div>
-      <div class="card">
-        <h3>Contract Management</h3>
-        <p>After award, we help you manage performance, deliverables, modifications, and customer communication so the work stays healthy.</p>
-      </div>
-      <div class="card">
-        <h3>Contract Administration</h3>
-        <p>We keep you compliant and paid. Invoicing support, reporting, contract file maintenance, and closeout.</p>
+    <div class="hero-support">
+      <div class="wrap hero-rest">
+        <p class="hero-sub">Ayo Strategic Consulting Group gives growing government contractors a full contracting team without the cost of building one in house. Business development, capture, proposal development, and contract administration, handled with you.</p>
+        <p class="hero-cta"><a class="btn" href="https://outlook.office.com/book/AyoConsult@ayoscg.com/?ismsaljsauthenabled">Schedule a Consultation</a></p>
+        <p class="hero-note">A consultation fee applies and is fully credited toward your engagement if you proceed.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="compare">
-  <div class="wrap">
-    <h2>Why a Fractional Team Instead of Full-Time Hires?</h2>
-    <div class="compare-grid">
-      <div class="compare-col inhouse">
-        <h3>Building It In House</h3>
-        <p>Six figures annually in salaries alone, before benefits and overhead.</p>
-        <p>Months of recruiting to find the right people.</p>
-        <p>Capacity sits idle between pursuits.</p>
-        <p>Your problem when someone leaves.</p>
+  <section class="section" aria-labelledby="expertise-heading">
+    <div class="wrap reveal">
+      <div class="duet">
+        <h2 id="expertise-heading">
+          <span class="v-you">Your business was built to deliver something specific to the government.</span>
+          <span class="v-we">Contracting is a different specialty, and it is ours.</span>
+        </h2>
+        <div class="duet-body">
+          <p>The companies that grow in this market are rarely the ones that learned contracting on the side. They are the ones that stayed focused on their craft and put a specialist on the contracting seat. Ayo SCG stands beside you as that second expert, so the part of the business you were never meant to master is handled by people who work in it every day.</p>
+        </div>
       </div>
-      <div class="compare-col fractional">
-        <h3>Your Fractional Team</h3>
-        <p>A fraction of the cost, full expertise from day one.</p>
-        <p>Start immediately with a proven team.</p>
-        <p>Scale up or down with your pipeline.</p>
-        <p>Continuity is our responsibility, not yours.</p>
+      <p class="aside-quote">You could get by doing it yourself. Getting by is not the goal.</p>
+    </div>
+  </section>
+
+  <section class="section section--light" aria-labelledby="focus-heading">
+    <div class="wrap reveal">
+      <div class="duet">
+        <h2 id="focus-heading">
+          <span class="v-you">Running your own contracting pulls you away from the work that earns your revenue.</span>
+        </h2>
+        <div class="duet-body">
+          <p>Every hour spent hunting opportunities, decoding solicitations, and chasing compliance is an hour taken from delivery, from your customers, and from the work your company is actually known for. Doing it part way rarely produces the result a specialist would.</p>
+          <p class="answer">Stop doing your own contracting. Bring in the team that specializes in it, and get your attention back.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="engage">
-  <div class="wrap">
-    <h2>How Engagements Work</h2>
-    <div class="facts">
-      <div class="fact"><span class="k">[SIX OR NINE] Months</span><span class="v">Minimum commitment</span></div>
-      <div class="fact"><span class="k">Embedded Team</span><span class="v">Engagement style</span></div>
-      <div class="fact"><span class="k">Weekly Touchpoints</span><span class="v">Communication</span></div>
+  <section class="section band-teal on-teal" aria-labelledby="embedded-heading">
+    <div class="wrap reveal">
+      <h2 id="embedded-heading" class="band-head">A full contracting function that operates like part of your company, without adding to your payroll.</h2>
+      <div class="band-card">
+        <p>No new salaries, no taxes, no benefits, no HR. Your fractional team works embedded in your business, learning your capabilities, your customers, and your goals, and carrying the contracting function for as long as you need it.</p>
+        <p>The need does not end when a pursuit ends, and neither do we. As long as you are in government contracting, the function has to exist. We are it.</p>
+      </div>
     </div>
-    <p>Contracting cycles take time. The minimum commitment gives us enough runway to build your pipeline, develop strategy, produce proposals, and stand up your post-award support. Engagements are scoped to your pipeline volume and support needs.</p>
-  </div>
-</section>
+  </section>
 
-<section class="closing">
-  <div class="wrap">
-    <h2>Ready for Your Contracting Team?</h2>
-    <p>Schedule a consultation to walk through your pipeline and see whether a fractional contracting team is right for you. A consultation fee applies and is fully credited toward your engagement if you proceed.</p>
-    <a class="btn" href="PASTE-YOUR-MICROSOFT-BOOKINGS-LINK-HERE">Schedule a Consultation</a>
-    <span class="btn-note">You will receive your scheduling confirmation immediately after booking.</span>
-  </div>
-</section>
+  <section class="section covers" aria-labelledby="covers-heading">
+    <div class="wrap reveal">
+      <h2 id="covers-heading">What Your Team Covers</h2>
+      <div class="lifecycle">
+        <article class="stage">
+          <div>
+            <p class="stage-num" aria-hidden="true">01</p>
+            <h3>Business Development</h3>
+          </div>
+          <p>We build and work your pipeline. Market monitoring, opportunity identification, and qualification, so you always know what is coming and what deserves your attention.</p>
+        </article>
+        <article class="stage">
+          <div>
+            <p class="stage-num" aria-hidden="true">02</p>
+            <h3>Capture and Proposals</h3>
+          </div>
+          <p>We develop your capture strategy before the RFP drops, then write compliant, compelling, submission ready proposals that position you to compete.</p>
+        </article>
+        <article class="stage">
+          <div>
+            <p class="stage-num" aria-hidden="true">03</p>
+            <h3>Contract Management</h3>
+          </div>
+          <p>After award, we help you manage performance, deliverables, modifications, and customer communication so the work stays healthy.</p>
+        </article>
+        <article class="stage">
+          <div>
+            <p class="stage-num" aria-hidden="true">04</p>
+            <h3>Contract Administration</h3>
+          </div>
+          <p>We keep you compliant and paid. Invoicing support, reporting, contract file maintenance, and closeout.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-<footer>
+  <section class="section section--light" aria-labelledby="versus-heading">
+    <div class="wrap reveal">
+      <h2 id="versus-heading" class="versus-head">Why a Fractional Team Instead of Full-Time Hires?</h2>
+      <div class="versus">
+        <div class="versus-col versus-col--house">
+          <h3>Building it in house</h3>
+          <p>Six figures annually in salaries alone, before benefits and overhead.</p>
+          <p>Months of recruiting to find the right people.</p>
+          <p>Capacity sits idle between pursuits.</p>
+          <p>Your problem when someone leaves.</p>
+        </div>
+        <div class="versus-col versus-col--team">
+          <h3>Your fractional team</h3>
+          <p>A fraction of the cost, full expertise from day one.</p>
+          <p>Start immediately with a proven team.</p>
+          <p>Scale up or down with your pipeline.</p>
+          <p>Continuity is our responsibility, not yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section engage" aria-labelledby="engage-heading">
+    <div class="wrap reveal">
+      <h2 id="engage-heading">How Engagements Work</h2>
+      <div class="facts">
+        <p class="fact">Embedded team</p>
+        <p class="fact">Weekly touchpoints</p>
+        <p class="fact">Scoped to your pipeline</p>
+      </div>
+      <p class="engage-note">Your engagement is scoped to your pipeline volume and the functions you need most, working as a steady extension of your business.</p>
+    </div>
+  </section>
+
+  <section class="closing on-teal" aria-labelledby="closing-heading">
+    <div class="closing-you reveal">
+      <h2 id="closing-heading">Ready for Your Contracting Team?</h2>
+    </div>
+    <div class="closing-we reveal">
+      <p>Schedule a consultation to walk through your pipeline and see whether a fractional contracting team is right for you. A consultation fee applies and is fully credited toward your engagement if you proceed.</p>
+      <p class="closing-cta"><a class="btn" href="https://outlook.office.com/book/AyoConsult@ayoscg.com/?ismsaljsauthenabled">Schedule a Consultation</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
   <div class="wrap">
-    <p class="tagline">Your Fractional Contracting Team for Government Contractors</p>
-    <p><a href="https://www.ayoscg.com">www.ayoscg.com</a> &nbsp;|&nbsp; <a href="mailto:info@ayoscg.com">info@ayoscg.com</a></p>
-    <p class="copyright">&copy; 2026 Ayo Strategic Consulting Group. All rights reserved.</p>
+    <p class="footer-tagline">Your Fractional Contracting Team for Government Contractors</p>
+    <div class="footer-links">
+      <a href="https://www.ayoscg.com">www.ayoscg.com</a>
+      <a href="mailto:info@ayoscg.com">info@ayoscg.com</a>
+    </div>
+    <p class="footer-notice">Copyright 2026 Ayo Strategic Consulting Group. All rights reserved.</p>
   </div>
 </footer>
 
+<script>
+(function () {
+  'use strict';
+  document.documentElement.classList.add('js');
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.reveal');
+  var i;
+  if (reduce || !('IntersectionObserver' in self)) {
+    for (i = 0; i < targets.length; i++) { targets[i].classList.add('in'); }
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    for (var j = 0; j < entries.length; j++) {
+      if (entries[j].isIntersecting) {
+        entries[j].target.classList.add('in');
+        io.unobserve(entries[j].target);
+      }
+    }
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+  for (i = 0; i < targets.length; i++) { io.observe(targets[i]); }
+})();
+</script>
 </body>
 </html>
